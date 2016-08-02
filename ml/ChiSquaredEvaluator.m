@@ -28,7 +28,9 @@
             double current = [[obj objectForKey:klass] doubleValue];
             double featureTotal = [[obj objectForKey:@":total"] doubleValue];
             double expected = classTotal * featureTotal / (double) total;
-            chi += pow(expected - current, 2) / expected;
+            if (expected != 0) {
+                chi += pow(expected - current, 2) / expected;
+            }
         }];
     }];
     
